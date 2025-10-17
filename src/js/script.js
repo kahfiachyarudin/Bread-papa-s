@@ -322,3 +322,28 @@ const modal = document.getElementById('modal');
 
   open.onclick = () => modal.classList.remove('hidden');
   close.onclick = () => modal.classList.add('hidden');
+
+
+   const slider = document.getElementById('slider');
+      const dots = document.querySelectorAll('.dot');
+      let index = 0;
+
+      function showSlide(i) {
+        index = i;
+        slider.style.transform = `translateX(-${i * 100}%)`;
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('opacity-100', idx === i);
+          dot.classList.toggle('opacity-60', idx !== i);
+        });
+      }
+
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => showSlide(dot.dataset.index));
+      });
+
+      setInterval(() => {
+        index = (index + 1) % 3;
+        showSlide(index);
+      }, 4000);
+
+      showSlide(0);
