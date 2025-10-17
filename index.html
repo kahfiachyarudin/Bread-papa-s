@@ -59,7 +59,7 @@
       <li class="font-poppins transform transition duration-300 hover:scale-110 hover:font-semibold hover:text-brownPapas dark:hover:text-orangePapas"><a href="#section-akhir">Home</a></li>
       <li class="font-poppins transform transition duration-300 hover:scale-110 hover:font-semibold hover:text-brownPapas dark:hover:text-orangePapas"><a href="#shop">Shop</a></li>
       <li class="font-poppins transform transition duration-300 hover:scale-110 hover:font-semibold hover:text-brownPapas dark:hover:text-orangePapas"><a href="#about">About</a></li>
-      <li class="font-poppins transform transition duration-300 hover:scale-110 hover:font-semibold hover:text-brownPapas dark:hover:text-orangePapas"><a id="btn-order">Contact Us</a></li>
+      <li class="font-poppins transform transition duration-300 hover:scale-110 hover:font-semibold hover:text-brownPapas dark:hover:text-orangePapas"><a id="btn-contact">Contact Us</a></li>
     </ul>
   </nav>
 
@@ -102,6 +102,9 @@
   </button>
 </header>
 
+
+
+
     <!-- section awal -->
 <div class="flex flex-col items-center group md:mt-5">
   <!-- logo -->
@@ -115,6 +118,71 @@
   </div>
 </div>
 
+<section 
+    id="contact-form" 
+    class="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-5 
+           opacity-0 transition-opacity duration-300 ease-out hidden">
+    <div 
+        class="w-full max-w-lg p-8 bg-white rounded-xl shadow-2xl dark:bg-[#332B1C] border border-orangePapas/50 relative overflow-y-auto max-h-full
+               transform scale-95 transition-transform duration-300 ease-out"
+    > 
+        <!-- Tombol Tutup -->
+        <button 
+            id="closeContactButton" 
+            class="absolute top-3 right-3 text-gray-400 hover:text-red-500 dark:text-gray-300 dark:hover:text-red-400 transition-colors duration-200"
+            aria-label="Tutup Formulir"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M18 6l-12 12" />
+                <path d="M6 6l12 12" />
+            </svg>
+        </button>
+
+        <h2 class="text-3xl font-bold text-brownPapas dark:text-white mb-6 text-center border-b pb-3 border-orangePapas">
+            Hubungi Kami
+        </h2>
+        <p class="text-center text-gray-600 dark:text-gray-300 mb-6">
+            Punya pertanyaan, saran, atau masukan? Kirimkan pesan Anda melalui formulir berikut.
+        </p>
+        
+        <form id="contactForm" class="space-y-4">
+            <div>
+                <label for="nama" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Nama Lengkap</label>
+                <input type="text" id="nama" name="nama" required 
+                       class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm 
+                              focus:outline-none focus:ring-orangePapas focus:border-orangePapas 
+                              dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+            </div>
+
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Alamat Email</label>
+                <input type="email" id="email" name="email" required 
+                       class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm 
+                              focus:outline-none focus:ring-orangePapas focus:border-orangePapas 
+                              dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+            </div>
+
+            <div>
+                <label for="pesan" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Pesan Anda</label>
+                <textarea id="pesan" name="pesan" rows="4" required 
+                          class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm 
+                                 focus:outline-none focus:ring-orangePapas focus:border-orangePapas 
+                                 dark:bg-gray-700 dark:border-gray-600 dark:text-white"></textarea>
+            </div>
+
+            <button type="submit" 
+                    class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-md 
+                           text-base font-semibold text-white bg-orangePapas hover:bg-[#EF7722] 
+                           focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orangePapas 
+                           transition duration-150 ease-in-out">
+                Kirim Pesan via WhatsApp
+            </button>
+        </form>
+
+        <p id="feedback" class="mt-4 text-sm text-center text-red-500 hidden"></p>
+    </div>
+</section>
 
 <!-- section akhir -->
 <div id="section-akhir" class="mt-28 md:mt-32">
@@ -380,4 +448,4 @@
     </footer>
     <script src="./src/js/script.js"></script>
   </body>
-</html>
+</h

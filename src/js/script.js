@@ -212,6 +212,86 @@ document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && !orderFormSection.classList.contains('hidden')) hideModal();
 });
 
+// --- Elemen Global ---
+const contactUsButtons = document.querySelectorAll('#btn-contact'); // tombol untuk buka modal contact
+const contactUsSection = document.getElementById('contact-form');
+const contactUsCloseBtn = document.getElementById('closeContactButton');
+const contactUsForm = document.getElementById('contactForm');
+const contactUsFeedback = document.getElementById('feedback');
+
+// Elemen animasi scale
+const contactUsModal = contactUsSection.querySelector('.w-full.max-w-lg');
+
+// Nomor WhatsApp tujuan
+const contactWaNumber = "6281234567890";
+
+// --- Fungsi Modal ---
+function openContactUsModal() {
+  contactUsSection.classList.remove('hidden');
+  setTimeout(() => {
+    contactUsSection.classList.remove('opacity-0');
+    contactUsSection.classList.add('opacity-100');
+    contactUsModal.classList.remove('scale-95');
+    contactUsModal.classList.add('scale-100');
+  }, 10);
+  contactUsForm.reset();
+  contactUsFeedback.classList.add('hidden');
+}
+
+function closeContactUsModal() {
+  contactUsSection.classList.remove('opacity-100');
+  contactUsSection.classList.add('opacity-0');
+  contactUsModal.classList.remove('scale-100');
+  contactUsModal.classList.add('scale-95');
+  setTimeout(() => contactUsSection.classList.add('hidden'), 300);
+}
+
+// --- Fungsi Kirim WhatsApp ---
+function sendContactUsMessage(event) {
+  event.preventDefault();
+  contactUsFeedback.classList.add('hidden');
+
+  const nama = document.getElementById('nama').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const pesan = document.getElementById('pesan').value.trim();
+
+  if (!nama || !email || !pesan) {
+    contactUsFeedback.textContent = "Mohon lengkapi semua data formulir.";
+    contactUsFeedback.classList.remove('hidden');
+    return;
+  }
+
+  const message = `
+Halo Bread Papa's 👋
+Saya ingin menyampaikan pesan berikut:
+
+*Nama:* ${nama}
+*Email:* ${email}
+
+*Pesan:*
+${pesan}
+
+Terima kasih atas perhatian Anda!
+  `.trim();
+
+  const encodedMessage = encodeURIComponent(message);
+  const waLink = `https://wa.me/${contactWaNumber}?text=${encodedMessage}`;
+  window.open(waLink, '_blank');
+  closeContactUsModal();
+}
+
+// --- Event Listeners ---
+contactUsButtons.forEach(btn => btn.addEventListener('click', openContactUsModal));
+contactUsCloseBtn.addEventListener('click', closeContactUsModal);
+contactUsForm.addEventListener('submit', sendContactUsMessage);
+contactUsSection.addEventListener('click', e => { 
+  if (e.target === contactUsSection) closeContactUsModal(); 
+});
+document.addEventListener('keydown', e => { 
+  if (e.key === 'Escape' && !contactUsSection.classList.contains('hidden')) closeContactUsModal(); 
+});
+
+
 
 const buttonFbs = document.querySelectorAll('#button-fb');
 
