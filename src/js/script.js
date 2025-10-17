@@ -5,6 +5,7 @@ const header = document.getElementById("siteHeader");
 const buttonDark = document.getElementById("button-dark");
 const html = document.querySelector("html");
 const splash = document.getElementById("splash");
+const batalkan = document.querySelectorAll("#batalkan");
 
 // === Hamburger ===
 buttonHumberger.addEventListener("click", () => {
@@ -13,6 +14,12 @@ buttonHumberger.addEventListener("click", () => {
 
 buttonClose.addEventListener("click", () => {
   nav.classList.add("-translate-y-full");
+});
+
+batalkan.forEach((item) => {
+  item.addEventListener("click", () => {
+    nav.classList.add("-translate-y-full");
+  });
 });
 
 // === Splash Intro ===
