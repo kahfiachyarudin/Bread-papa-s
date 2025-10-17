@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Super Trend'; 
+  src: url('/src/fonts/Super\ Trend.ttf') format('truetype');
+}
