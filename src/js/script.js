@@ -39,8 +39,8 @@ if (splash && poster) {
       setTimeout(() => {
         poster.classList.add("opacity-0", "pointer-events-none");
         setTimeout(() => poster.style.display = "none", 500);
-      }, 3000);
-    }, 600); // sedikit delay agar transisi splash selesai
+      }, 1500);
+    }, 100); // sedikit delay agar transisi splash selesai
   }, 2000); // splash tampil 2 detik
 }
 // === Header muncul setelah scroll ===
