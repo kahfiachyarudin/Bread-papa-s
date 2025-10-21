@@ -25,24 +25,22 @@ batalkan.forEach((item) => {
 
 // === Splash Intro ===
 if (splash && poster) {
-  // 1️⃣ Splash tampil 2 detik
   setTimeout(() => {
     splash.classList.add("opacity-0", "pointer-events-none");
     setTimeout(() => splash.style.display = "none", 500);
 
-    // 2️⃣ Setelah splash hilang → tampilkan poster
     setTimeout(() => {
       poster.classList.remove("pointer-events-none");
       poster.classList.add("opacity-100");
 
-      // 3️⃣ Setelah 3 detik → poster menutup
       setTimeout(() => {
         poster.classList.add("opacity-0", "pointer-events-none");
         setTimeout(() => poster.style.display = "none", 500);
       }, 1500);
-    }, 100); // sedikit delay agar transisi splash selesai
-  }, 2000); // splash tampil 2 detik
+    }, 100); 
+  }, 2000); 
 }
+
 // === Header muncul setelah scroll ===
 window.addEventListener("scroll", () => {
   if (window.scrollY > 50) {
